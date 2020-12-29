@@ -10,6 +10,7 @@ namespace QueueWF {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Globalization;
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -321,8 +322,8 @@ namespace QueueWF {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		MaxSize = Convert::ToInt32(textBox1->Text);
 		Size = Convert::ToInt32(textBox4->Text);
-		p = Convert::ToDouble(textBox3->Text);
-		q = Convert::ToDouble(textBox2->Text);
+		p = Convert::ToDouble(textBox3->Text, gcnew CultureInfo("en-US"));
+		q = Convert::ToDouble(textBox2->Text, gcnew CultureInfo("en-US"));
 		queue = new TQueue<int>(MaxSize);
 		PushCount = 0;
 		PopCount = 0;
